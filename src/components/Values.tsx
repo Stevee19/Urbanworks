@@ -25,7 +25,7 @@ const Values = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-[url('../images/bg4.png')] bg-cover bg-center text-white">
+    <section className="relative py-20 bg-[url('/images/bg4.png')] bg-cover bg-center text-white">
       {/* Overlay */}
       <div className="absolute inset-0 bg-primary/70"></div>
 

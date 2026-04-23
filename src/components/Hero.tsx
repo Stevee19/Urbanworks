@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-[url('../images/bg1.png')] bg-center bg-cover overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-[url('/images/bg1.png')] bg-center bg-cover overflow-hidden"
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary/85"></div>
