@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat[wght].ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply text-primary antialiased overflow-x-hidden;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Ensure images are responsive by default */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Prevent horizontal overflow */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Custom breakpoint for 940px */
+  @media (max-width: 939px) {
+    .desktop-nav {
+      display: none !important;
+    }
+    .mobile-menu-toggle {
+      display: flex !important;
+    }
+    div.mobile-sidebar {
+      display: block !important;
+      background-color: #20252F !important;
+    }
+    .desktop-back-link {
+      display: none !important;
+    }
+    .mobile-back-link {
+      display: flex !important;
+    }
+  }
+
+  @media (min-width: 940px) {
+    .desktop-nav {
+      display: flex !important;
+    }
+    .mobile-menu-toggle {
+      display: none !important;
+    }
+    .desktop-back-link {
+      display: flex !important;
+    }
+    .mobile-back-link {
+      display: none !important;
+    }
+  }
+
+  /* Custom breakpoint for 890px - Hero section layout */
+  @media (max-width: 889px) {
+    .hero-content {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    .hero-text {
+      text-align: center !important;
+    }
+    .hero-buttons {
+      justify-content: center !important;
+    }
+  }
+
+  @media (min-width: 890px) {
+    .hero-content {
+      flex-direction: row !important;
+    }
+    .hero-text {
+      text-align: left !important;
+    }
+    .hero-buttons {
+      justify-content: flex-start !important;
+    }
+  }
+
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button, a, input, select, textarea {
+      @apply min-h-[44px];
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    *:not(.animate-bounce-slow):not([class*="animate-"]) {
+      animation-duration: 0.3s !important;
+      transition-duration: 0.3s !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold rounded-lg bg-accent text-white transition-all duration-300 hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold rounded-lg bg-transparent text-white border-2 border-white transition-all duration-300 hover:bg-white hover:text-primary;
+  }
+
+  .section-subtitle {
+    @apply inline-block text-sm font-semibold uppercase tracking-widest text-accent mb-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary leading-tight;
+  }
+
+  .image-placeholder {
+    @apply flex flex-col items-center justify-center gap-4 text-center p-6;
+  }
+
+  .image-placeholder span {
+    @apply text-sm text-gray;
+  }
+
+  .image-placeholder svg {
+    @apply opacity-50;
+  }
+}
+
+@layer utilities {
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-500;
+  }
+
+  .fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
